@@ -27,22 +27,34 @@ const resetButton = document.getElementById("reset");
 let verifiedText = ""; // question text need verificaions on each key press
 let buttons = document.querySelectorAll("button"); 
 
+
+let calcStatus = null; let statusDisplay = document.getElementById("status");
+
+// lhs and rhs
 let firstNum = 0; let secondNum=0;
+// limit to the question text based on the display width
+let lengthLimit = 15;
+
 
 buttons.forEach((button) =>{
-    button.addEventListener("click",function(event){
-        /*
-        the buttons are classified based on their accomodation frequency on the question text 
-            number : 0,00, 1 to 9
-            one-time : ., operators
-        */
-       // there should be a limit to the question text based on the display width
-       // until the operator is selected, the number should be assigned to 1st num; after that , 2nd num
+    button.addEventListener("click",function(event) {
+       if (verifiedText.length < lengthLimit){
         const clickedText = event.target.value;
-        console.log(typeof(clickedText));
         const clickedClass = event.target.value;
+        // verify zero or operators are not clicked at the very first time
+
         verifiedText += clickedText;
+        // showing verified text on the display
         questionText.textContent = verifiedText;
+       }
+       else{
+        calcStatus = "Question limit reached";
+       }
+
+       if (calcStatus){
+        statusDisplay.innerText = calcStatus;
+       }
+        
     });
 });
 
