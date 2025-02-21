@@ -33,11 +33,28 @@ function operate(num,operator,anotherNum){
 }
 
 
-let qt = document.getElementById("questionText");
+let queText = document.getElementById("questionText");
+const ansText = document.getElementById("ansText");
+
+
 
 const clearButton = document.getElementById("reset");
 clearButton.addEventListener("click",function() {
-    qt.textContent = "";
+    queText.textContent = ""; ansText.textContent = "";
 });
 
+// there are 3 types of buttons : 0 to 9, = , and operators
+const ansBtn = document.getElementById("ans");
 
+let contents;
+ansBtn.addEventListener("click",function(){
+    for (let i of queText.textContent){
+        if (["+","-","*","/"].includes(i)) {
+            contents = queText.textContent.split(i);
+            let one = parseFloat(contents[0]);
+            let two = parseFloat(contents[1]);
+            ansText.textContent = (operate(one,i,two));
+        }
+    }
+    
+});
