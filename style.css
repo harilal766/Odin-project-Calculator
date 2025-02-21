@@ -1,0 +1,37 @@
+#brand{
+    font-family: Eurostile;
+    margin-left: 60%;
+}
+#calcBody, #display,.button{
+    border-radius: 5px;
+}
+
+#calcBody{
+    margin: auto;
+    height:600px;
+    width: 400px;
+    background-color: antiquewhite;
+    border: 1px solid black;
+}
+
+#display{
+    margin: 5px;
+    width: auto;
+    height: 150px;
+    background-color: grey;
+}
+#numButtons{
+    margin: 5px;
+    background-color: aqua;
+    gap: 5px;
+    display: flex; flex-direction: column;
+
+}
+.row{
+    display: flex;
+    gap: 5px;
+}
+.button{
+    height: 70px; width: 70px;
+    background-color: lightgreen;
+}
