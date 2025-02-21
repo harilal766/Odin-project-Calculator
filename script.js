@@ -1,7 +1,7 @@
 // initialize the display and other divs
 
 const numButtons = document.getElementById("numButtons");
-
+const existingRow = document.getElementById("existingRow");
 // 3 x 3 grid for buttons 1 to 9
 const grid = 3;
 let digit = 0;
@@ -18,6 +18,6 @@ for (let row=0; row<grid; row++){
         numButton.classList.add("button");
         buttonRow.appendChild(numButton);
     }
-    numButtons.appendChild(buttonRow);
+    numButtons.insertBefore(buttonRow,existingRow);
 }
 

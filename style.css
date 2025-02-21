@@ -2,10 +2,13 @@
     font-family: Eurostile;
     margin-left: 60%;
 }
-#calcBody, #display,.button{
+#calcBody, #display,.button,.opButton{
     border-radius: 5px;
 }
 
+.display, #operations,#numButtons{
+    margin: 5px;
+}
 #calcBody{
     margin: auto;
     height:600px;
@@ -21,7 +24,6 @@
     background-color: grey;
 }
 #numButtons{
-    margin: 5px;
     background-color: aqua;
     gap: 5px;
     display: flex; flex-direction: column;
@@ -34,4 +36,12 @@
 .button{
     height: 70px; width: 70px;
     background-color: lightgreen;
+}
+
+.opButton{
+    background-color: orangered;
+    height: 30px; width: 70px;
+}
+#answer{
+    width: 145px;
 }
