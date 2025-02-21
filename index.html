@@ -8,20 +8,25 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <div class="nav">
+        
+    </div>
     <div id="calcBody">
         <div id="display">
+            <h3 id="questionText"></h3>
         </div>
-        <div id="operations">
-            <button class="opButton" id="reset">Reset</button>
-            <button class="opButton" id="+">+</button>
-            <button class="opButton" id="">-</button>
-            <button class="opButton" id="*">*</button>
-            <button class="opButton" id="/">/</button>
-        </div>
-        <div id="numButtons">
-            <div id="existingRow">
-                <button class="button" id="0">0</button>
-                <button class="button" id="answer">=</button>
+        <div class="buttons">
+            <div id="left">
+                <div id="numButtons">
+                    <div id="existingRow">
+                        <button class="number" id="0" value="0">0</button>
+                        <button class="number" id="00" value="00">00</button>
+                        <button class="one-time" id="dot" value=".">.</button>
+                    </div>
+                </div>
+            </div>
+            <div id="right">
+                <button id="reset">AC</button>
             </div>
         </div>
     </div>

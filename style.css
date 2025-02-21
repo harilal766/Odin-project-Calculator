@@ -1,18 +1,16 @@
-#brand{
-    font-family: Eurostile;
-    margin-left: 60%;
-}
+
+
 #calcBody, #display,.button,.opButton{
     border-radius: 5px;
 }
-
-.display, #operations,#numButtons{
+.display, #right,#numButtons{
     margin: 5px;
 }
+
 #calcBody{
     margin: auto;
-    height:600px;
-    width: 400px;
+    height:700px;
+    width: 350px;
     background-color: antiquewhite;
     border: 1px solid black;
 }
@@ -23,25 +21,14 @@
     height: 150px;
     background-color: grey;
 }
-#numButtons{
-    background-color: aqua;
-    gap: 5px;
-    display: flex; flex-direction: column;
 
-}
 .row{
     display: flex;
     gap: 5px;
 }
-.button{
-    height: 70px; width: 70px;
-    background-color: lightgreen;
-}
 
-.opButton{
-    background-color: orangered;
-    height: 30px; width: 70px;
-}
-#answer{
-    width: 145px;
+
+button{
+    width: 50px; height: 50px;
+    background-color: blueviolet;
 }
