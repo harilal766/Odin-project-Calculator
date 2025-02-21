@@ -30,31 +30,25 @@ let buttons = document.querySelectorAll("button");
 
 let calcStatus = null; let statusDisplay = document.getElementById("status");
 
-// lhs and rhs
-let firstNum = 0; let secondNum=0;
+// lhs, rhs and operator
+let num = 0; let anotherNum=0; let operator = null;
 // limit to the question text based on the display width
 let lengthLimit = 15;
+let inputNum = 0;
 
+let questionArray = [num,operator,anotherNum];
 
+let clickedText; 
 buttons.forEach((button) =>{
-    button.addEventListener("click",function(event) {
-       if (verifiedText.length < lengthLimit){
-        const clickedText = event.target.value;
-        const clickedClass = event.target.value;
-        // verify zero or operators are not clicked at the very first time
-
-        verifiedText += clickedText;
-        // showing verified text on the display
-        questionText.textContent = verifiedText;
-       }
-       else{
-        calcStatus = "Question limit reached";
-       }
-
-       if (calcStatus){
-        statusDisplay.innerText = calcStatus;
-       }
-        
+    button.addEventListener("click",function(event){
+        clickedText = event.target.value;
+        // number verification
+        if (!isNaN(clickedText)){
+            // add digit by mulitplying with 10
+            inputNum = (inputNum*10) + Number(clickedText);
+        }
+        console.log(questionArray);
     });
+
 });
 
