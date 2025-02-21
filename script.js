@@ -14,12 +14,20 @@ for (let row=0; row<grid; row++){
         digit += 1;
         numButton.innerText = digit;
         numButton.value = digit;
-        numButton.id = digit;
         numButton.classList.add("number");
         buttonRow.appendChild(numButton);
     }
     numButtons.insertBefore(buttonRow,existingRow);
 }
+
+
+
+
+
+
+
+
+
 
 // PROCESSING BUTTON CLICKS
 const questionText = document.getElementById("questionText");
@@ -34,20 +42,40 @@ let calcStatus = null; let statusDisplay = document.getElementById("status");
 let num = 0; let anotherNum=0; let operator = null;
 // limit to the question text based on the display width
 let lengthLimit = 15;
-let inputNum = 0;
+let dispInput = ''; let inputNum = '';
 
-let questionArray = [num,operator,anotherNum];
+let questionArray = [];
 
-let clickedText; 
+let decimalCount =0; operatorCount = 0;
+
+
+let clickedButtonContent; 
 buttons.forEach((button) =>{
     button.addEventListener("click",function(event){
-        clickedText = event.target.value;
+        clickedButtonContent = event.target.innerText;
         // number verification
-        if (!isNaN(clickedText)){
+        if (!isNaN(clickedButtonContent)){
             // add digit by mulitplying with 10
-            inputNum = (inputNum*10) + Number(clickedText);
+            inputNum += clickedButtonContent;
+            dispInput = `${inputNum}`;
         }
-        console.log(questionArray);
+        else{// possibilites : 00/decimal/operator/reset/=
+            if (["+","-","*","/"].includes(clickedButtonContent)){
+                if (operatorCount === 0){
+                    dispInput += `${clickedButtonContent}`;
+                    operator = 1;
+                    if (questionArray.length < 3){
+                        questionArray.push(inputNum);
+                        questionArray.push(clickedButtonContent)
+                    }
+                    
+                }
+            }
+        }
+
+
+        questionText.textContent = dispInput;
+        console.log(clickedButtonContent,questionArray);
     });
 
 });
