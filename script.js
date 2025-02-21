@@ -22,18 +22,14 @@ for (let row=0; row<grid; row++){
 
 
 
-function add(num,anotherNum){
-    return num + anotherNum;
+function operate(num,operator,anotherNum){
+    operators = {
+        "+" : num + anotherNum ,
+        "-" : num - anotherNum,
+        "*" : num * anotherNum,
+        "/" : num / anotherNum
+    }
+    return operators[operator];
 }
 
-function subtract(num,anotherNum){
-    return num - anotherNum;
-}
-
-function multiply(num,anotherNum){
-    return num * anotherNum;
-}
-
-function divide(num,anotherNum){
-    return num/anotherNum;
-}
+console.log(operate(1,"-",2));
