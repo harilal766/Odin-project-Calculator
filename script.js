@@ -32,4 +32,12 @@ function operate(num,operator,anotherNum){
     return operators[operator];
 }
 
-console.log(operate(1,"-",2));
+
+let qt = document.getElementById("questionText");
+
+const clearButton = document.getElementById("reset");
+clearButton.addEventListener("click",function() {
+    qt.textContent = "";
+});
+
+
