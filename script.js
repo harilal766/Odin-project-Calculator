@@ -1,4 +1,4 @@
-const numButtons = document.getElementById("numButtons");
+const numButtonDiv = document.getElementById("numButtons");
 const existingRow = document.getElementById("existingRow");
 // 3 x 3 grid for buttons 1 to 9
 const grid = 3;
@@ -17,7 +17,7 @@ for (let row=0; row<grid; row++){
         numButton.classList.add("number");
         buttonRow.appendChild(numButton);
     }
-    numButtons.insertBefore(buttonRow,existingRow);
+    numButtonDiv.insertBefore(buttonRow,existingRow);
 }
 
 
@@ -34,6 +34,7 @@ function operate(num,operator,anotherNum){
 
 
 let queText = document.getElementById("questionText");
+let questionContent = queText.textContent;
 const ansText = document.getElementById("ansText");
 
 
@@ -57,4 +58,31 @@ ansBtn.addEventListener("click",function(){
         }
     }
     
+});
+
+
+// get number buttons from the div
+const numButtons = numButtonDiv.querySelectorAll(".number");
+
+
+
+// OPERATORS SHOULD BE ACCEPTED ONLY ONCE , WHEN A NUMBER IS PRESENT ON THE LHS
+const otherButonsDiv = document.getElementById("right");
+const operatorButtons = otherButonsDiv.querySelectorAll(".operator");
+const operatorArray = ["+","-","*","/"];
+
+
+
+operatorButtons.forEach(operator =>{
+    operator.addEventListener("click",function(event){
+        const OperatorPresent = operatorArray.some(operator => queText.innerText.includes(operator));
+        const numPresent = /\d/.test(queText.textContent);
+        console.log(numPresent);
+        if (!OperatorPresent && numPresent) {
+            queText.textContent += operator.innerText;
+        }
+        else{
+            console.log("operator already present");
+        }
+    });
 });
