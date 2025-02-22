@@ -61,17 +61,12 @@ ansBtn.addEventListener("click",function(){
 });
 
 
-// get number buttons from the div
-const numButtons = numButtonDiv.querySelectorAll(".number");
-
 
 
 // OPERATORS SHOULD BE ACCEPTED ONLY ONCE , WHEN A NUMBER IS PRESENT ON THE LHS
 const otherButonsDiv = document.getElementById("right");
 const operatorButtons = otherButonsDiv.querySelectorAll(".operator");
 const operatorArray = ["+","-","*","/"];
-
-
 
 operatorButtons.forEach(operator =>{
     operator.addEventListener("click",function(event){
@@ -86,3 +81,15 @@ operatorButtons.forEach(operator =>{
         }
     });
 });
+
+
+
+// VERIFICATION OF NUMBER
+const numBtnsArray = numButtonDiv.querySelectorAll(".number");
+numBtnsArray.forEach(numBtn=>{
+    numBtn.addEventListener("click",function(event){
+        queText.innerText += event.target.innerText;
+    });
+});
+
+
