@@ -17,7 +17,8 @@ for (let row=0; row<grid; row++){
         numButton.classList.add("number");
         buttonRow.appendChild(numButton);
     }
-    numButtonDiv.insertBefore(buttonRow,existingRow);
+    //numButtonDiv.insertBefore(buttonRow,existingRow);
+    numButtonDiv.prepend(buttonRow);
 }
 
 
@@ -81,7 +82,6 @@ operatorButtons.forEach(operator =>{
         }
     });
 });
-
 
 
 // VERIFICATION OF NUMBER
