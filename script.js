@@ -65,7 +65,7 @@ ansBtn.addEventListener("click",function(){
 
 
 // OPERATORS SHOULD BE ACCEPTED ONLY ONCE , WHEN A NUMBER IS PRESENT ON THE LHS
-const otherButonsDiv = document.getElementById("right");
+const otherButonsDiv = document.getElementById("operators");
 const operatorButtons = otherButonsDiv.querySelectorAll(".operator");
 const operatorArray = ["+","-","*","/"];
 
@@ -73,12 +73,17 @@ operatorButtons.forEach(operator =>{
     operator.addEventListener("click",function(event){
         const OperatorPresent = operatorArray.some(operator => queText.innerText.includes(operator));
         const numPresent = /\d/.test(queText.textContent);
-        console.log(numPresent);
-        if (!OperatorPresent && numPresent) {
+        console.log(operator);
+        if (operator === "-"){
             queText.textContent += operator.innerText;
         }
         else{
-            console.log("operator already present");
+            if (!OperatorPresent && numPresent) {
+                queText.textContent += operator.innerText;
+            }
+            else{
+                console.log("operator already present");
+            }
         }
     });
 });

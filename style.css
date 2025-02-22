@@ -15,8 +15,15 @@
     border: 1px solid black;
 }
 
+
+/* Gap */
+#display,#operators,.buttons{
+    margin: 10px;
+    border: 1px solid grey;
+}
+
+
 #display{
-    margin: 5px;
     width: auto;
     height: 150px;
     background-color: grey;
@@ -43,4 +50,10 @@ button{
 }
 .buttons{
     display: flex; gap: 5px;
+}
+
+
+
+#ans{
+    height: 140px;
 }
